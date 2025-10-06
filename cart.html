@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffaf5;
+      margin: 0;
+      padding: 0;
+    }
+    .cart {
+      max-width: 900px;
+      margin: 40px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      text-align: center;
+      padding: 10px;
+    }
+    table th {
+      background: #ff7043;
+      color: white;
+    }
+    table img {
+      max-width: 50px;
+      border-radius: 5px;
+    }
+    #grandTotal {
+      text-align: right;
+      font-weight: bold;
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .checkout-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 12px 30px;
+      background: #ff5722;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .checkout-btn:hover {
+      background: #e64a19;
+    }
+    .remove-btn {
+      background: none;
+      border: none;
+      color: red;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    /* ✅ Checkout Bill Styling */
+    .checkout-bill {
+      display: none;
+      margin-top: 30px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .checkout-bill h3 {
+      color: #ff5722;
+      margin-bottom: 15px;
+    }
+    .checkout-bill p {
+      font-size: 1rem;
+      color: #333;
+    }
+    .checkout-bill .thankyou {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: green;
+    }
+    .checkout-bill table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    .checkout-bill th, .checkout-bill td {
+      padding: 8px;
+      border-bottom: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">🥒 Pickle Store</div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart">
+    <h1>🛒 My Cart</h1>
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Price</th>
+          <th>Quantity</th>
+          <th>Total</th>
+          <th>Remove</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <h2 id="grandTotal">Grand Total: ₹0</h2>
+    <div class="cart-footer">
+      <button class="checkout-btn" id="checkoutBtn">Proceed to Checkout</button>
+    </div>
+
+    <!-- ✅ Checkout Bill Section -->
+    <div id="checkoutBill" class="checkout-bill"></div>
+  </section>
+
+  <!-- ✅ Use script.js so both product and cart page work with single file -->
+  <script src="script.js"></script>
+  <script>
+    // ✅ Checkout Button Action
+    document.getElementById("checkoutBtn").addEventListener("click", function() {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const billDiv = document.getElementById("checkoutBill");
+      
+      if (cart.length === 0) {
+        billDiv.innerHTML = "<p>Your cart is empty!</p>";
+        billDiv.style.display = "block";
+        return;
+      }
+
+      let billHTML = "<h3>🧾 Your Bill</h3>";
+      let grandTotal = 0;
+
+      billHTML += "<table>"
+                + "<tr><th>Product</th><th>Price</th><th>Qty</th><th>Total</th></tr>";
+
+      cart.forEach(item => {
+        let price = parseInt(item.price.toString().replace("₹",""));
+        let total = price * item.quantity;
+        grandTotal += total;
+        billHTML += `<tr>
+          <td>${item.name}</td>
+          <td>₹${price}</td>
+          <td>${item.quantity}</td>
+          <td>₹${total}</td>
+        </tr>`;
+      });
+
+      billHTML += "</table>";
+      billHTML += `<h3>Grand Total: ₹${grandTotal}</h3>`;
+      billHTML += `<p class="thankyou">✅ Thank you for visiting Pickle Store!</p>`;
+
+      billDiv.innerHTML = billHTML;
+      billDiv.style.display = "block";
+    });
+  </script>
+</body>
+</html>

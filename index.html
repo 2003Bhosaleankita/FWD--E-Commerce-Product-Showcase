@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pickle Store</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="Images/logo.png" alt="Pickle Store Logo">
+      Pickle Store
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#products">Products</a>
+      <a href="#contact">Contact</a>
+      <a href="cart.html">Cart 🛒</a>
+    </nav>
+  </header>
+
+  <!-- Ingredients Modal -->
+  <div id="ingredientModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3 id="modalProductName"></h3>
+      <p id="modalIngredients"></p>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Perfect Pickle <br> with Perfect Taste</h1>
+      <p> Discover our wide range of traditional Indian pickles, made with farm-fresh ingredients.</p>
+      <button onclick="location.href='#products'">Shop Now</button>
+    </div>
+    <div class="hero-img">
+      <img src="Images/front.jpg" alt="Pickle Banner">
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about" id="about">
+    <h2>About Us</h2>
+    <div class="about-content">
+      <p>
+        Welcome to Pickle Store! We are passionate about bringing you the authentic taste of homemade pickles, crafted with love and traditional recipes passed down through generations.
+      </p>
+      <p>
+        Our pickles are made using the freshest ingredients, natural spices, and no artificial preservatives. From tangy mangoes to zesty lemons and spicy chillies, each jar promises a burst of flavor in every bite.
+      </p>
+      <p>
+        At Pickle Store, we believe in quality, freshness, and a touch of nostalgia. Whether for your daily meals or as a gift for loved ones, our pickles bring joy to every table.
+      </p>
+    </div>
+  </section>
+
+  
+
+
+  <!-- Products Section -->
+  <section class="products" id="products">
+    <h2>Our Pickles</h2>
+    <div class="product-grid">
+      
+
+
+      <!-- Mango Pickle -->
+      <div class="product-card"
+           data-ingredients="Raw mango, salt, mustard seeds, red chili powder, turmeric, oil"
+           data-manufacture="Manufactured: 01-09-2025"
+           data-expiry="Expiry: 01-09-2026"
+           data-price="200">
+        <img src="Images/Mango_pickle.jpeg" alt="Mango Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Mango Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+        
+        </div>
+      </div>
+
+      <!-- Lemon Pickle -->
+      <div class="product-card"
+           data-ingredients="Lemon, salt, red chili powder, turmeric, asafoetida, mustard seeds, oil"
+           data-manufacture="Manufactured: 05-09-2025"
+           data-expiry="Expiry: 05-09-2026"
+           data-price="150">
+        <img src="Images/Lemon_pickle.jpeg" alt="Lemon Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Lemon Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+          
+        </div>
+      </div>
+
+      <!-- Mixed Pickle -->
+      <div class="product-card"
+           data-ingredients="Mango, lemon, carrot, cauliflower, salt, red chili powder, turmeric, mustard seeds, fenugreek seeds, oil"
+           data-manufacture="Manufactured: 10-09-2025"
+           data-expiry="Expiry: 10-09-2026"
+           data-price="250">
+        <img src="Images/mixed.jpeg" alt="Mixed Veg Pickle">
+           <button class="add-to-cart">Add to Cart</button>
+           <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Mixed Veg Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+         
+        </div>
+      </div>
+
+      <!-- Chilli Pickle -->
+      <div class="product-card"
+           data-ingredients="Red chilies, garlic, salt, mustard seeds, turmeric, asafoetida, oil"
+           data-manufacture="Manufactured: 15-09-2025"
+           data-expiry="Expiry: 15-09-2026"
+           data-price="180">
+        <img src="Images/Chilli_pickle.jpeg" alt="Chilli Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Chilli Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+          
+        </div>
+      </div>
+
+       <!-- Garlic Pickle -->
+      <div class="product-card"
+           data-ingredients="Garlic cloves, mustard seeds, fenugreek seeds, red chili powder, turmeric, salt, oil"
+           data-manufacture="Manufactured: 20-09-2025"
+           data-expiry="Expiry: 20-09-2026"
+           data-price="200">
+        <img src="Images/Garlic_pickle.jpeg" alt="Garlic Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Garlic Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+        
+        </div>
+      </div>
+
+      <!--Ginger Pickle -->
+      <div class="product-card"
+           data-ingredients="Fresh ginger, mustard seeds, fennel seeds, red chili powder, turmeric, salt, asafoetida, mustard oil, lemon juice"
+           data-manufacture="Manufactured: 25-09-2025"
+           data-expiry="Expiry: 25-09-2026"
+           data-price="200">
+        <img src="Images/Ginger_pickle.jpeg" alt="Ginger Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Ginger Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+        
+        </div>
+      </div>
+
+      <!-- Gongura Pickle -->
+      <div class="product-card"
+           data-ingredients="Gongura leaves, red chilies, garlic, mustard seeds, fenugreek seeds, salt, turmeric, sesame oil"
+           data-manufacture="Manufactured: 30-09-2025"
+           data-expiry="Expiry: 30-09-2026"
+           data-price="200">
+        <img src="Images/Gongura Pickle.jpeg" alt="Gongura Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Gongura Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+        
+        </div>
+      </div>
+
+      <!-- Tamrind Pickle -->
+      <div class="product-card"
+           data-ingredients="Tamarind pulp, jaggery, red chili powder, turmeric, salt, asafoetida, mustard seeds, sesame oil"
+           data-manufacture="Manufactured: 01-10-2025"
+           data-expiry="Expiry: 01-10-2026"
+           data-price="200">
+        <img src="Images/Tamrind_pickle.jpeg" alt="Tamrind Pickle">
+          <button class="add-to-cart">Add to Cart</button>
+          <button class="details-btn" onclick="toggleDetails(this)">Details</button>
+        <h3>Tamrind Pickle</h3>
+        <div class="product-details">
+          <p class="ingredients"></p>
+          <p class="manufacture"></p>
+          <p class="expiry"></p>
+        
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Reviews Section -->
+<section class="reviews" id="reviews">
+  <h2>Customer Reviews</h2>
+
+  <!-- Review Form -->
+  <div class="review-form">
+    <input type="text" id="reviewerName" placeholder="Your Name" required>
+    <textarea id="reviewComment" placeholder="Your Review" required></textarea>
+    <div class="review-stars" id="reviewStars">
+      <!-- Stars will be clickable/highlightable -->
+      Rating:
+      <span data-value="1" class="star">☆</span>
+      <span data-value="2" class="star">☆</span>
+      <span data-value="3" class="star">☆</span>
+      <span data-value="4" class="star">☆</span>
+      <span data-value="5" class="star">☆</span>
+    </div>
+    <button onclick="submitReview()">Submit Review</button>
+  </div>
+
+  <!-- Review List -->
+  <div class="review-grid" id="reviewGrid">
+    <!-- Reviews will appear here -->
+  </div>
+</section>
+
+
+   <section id="contact" class="contact-section">
+  <h2>Contact Us</h2>
+  <div class="contact-cards">
+    <div class="contact-card">
+      <span class="icon">📍</span>
+      <p>123 Pickle Street, Flavor Town, India</p>
+    </div>
+    <div class="contact-card">
+      <span class="icon">📞</span>
+      <p>+91 9876543210</p>
+    </div>
+    <div class="contact-card">
+      <span class="icon">✉️</span>
+      <p>info@picklestore.com</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Pickle Store. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
